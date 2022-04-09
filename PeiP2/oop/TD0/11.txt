@@ -1,0 +1,11 @@
+Expliquez pourquoi le terminal (le shell, ou le cmd.exe) a besoin d’être réinitialisé 
+avant de pouvoir connaitre l’emplacement du fichier PaD.jar ?
+
+Le shell charge les variables d'environnement lorsqu'il démarre. Il ne les met plus à jour avant son prochain démarrage.
+Lorsqu'on change la variable d'environnement CLASSPATH, on doit donc redémarrer le shell pour qu'il mette à jour ses variables internes.
+
+Etudiez avec votre chargé de TD l’alternative à l’utilisation de cette variable d’environne-
+ment, en utilisant l’option cp des commandes javac et java.
+
+L'option cp est viable, mais elle implique un argument en plus à chaque invocation du compilateur, ce qui est assez contraignant
+Le plus simple serait d'utiliser un build system.

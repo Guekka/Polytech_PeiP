@@ -1,0 +1,5 @@
+Messi Paul : 8.166667
+Bardot Marie : abs
+Bella Jean : 13.1625
+Dupont Isabelle : 17.0
+Moyenne générale : 12.776389

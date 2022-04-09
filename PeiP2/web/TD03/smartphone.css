@@ -1,0 +1,57 @@
+/* Section takes all width */
+section {
+    clear: both;
+    width: auto;
+}
+
+/* twitter feed is below the section */
+#twitterfeed {
+    margin: 0;
+    clear: both;
+    border-left: none;
+    border-top: solid 1px red;
+}
+
+/* Menu icon (three lines) */
+#menub>div {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+}
+
+/* Remove previous padding for the menu, hides it */
+nav>ul {
+    padding-top: 0;
+    display: none;
+    width: auto;
+}
+
+/* Hides menu accessor on hover */
+nav:hover>#menub {
+    display: none;
+}
+
+/* Replaces it with menu */
+nav:hover>ul {
+    display: block;
+}
+
+/* Make them vertical, not horizontal. Limit width and height of each element */
+nav>ul>li {
+    float: none;
+    width: 150px;
+    height: 18px;
+}
+
+/* Move submenu items to the right */
+nav>ul>li:hover>ul {
+    position: relative;
+    left: 150px;
+    bottom: 42px;
+}
+
+/* Fix missing border on submenu items */
+nav>ul>li>ul>li {
+    margin-right: -3px;
+}

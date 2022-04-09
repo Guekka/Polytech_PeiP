@@ -1,0 +1,121 @@
+body {
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    padding: 0 10px;
+    max-width: 1024px;
+    min-width: 800px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 2px solid lightblue;
+    border-bottom: 2px solid lightblue;
+}
+
+#intro {
+    text-align: center;
+    width: 60%;
+    margin: auto;
+}
+
+/* ======= règles exercice 2 ======= */
+
+#menub~ul {
+    padding-top: 50px;
+    width: 456px;
+    margin: auto;
+}
+
+#menub~ul>li {
+    float: left;
+    list-style-type: none;
+    border: solid 2px blue;
+    margin: 0 -1px;
+}
+
+#menub~ul>li>a {
+    background-color: lightgreen;
+    display: block;
+    width: 150px;
+    text-decoration: none;
+    text-align: center;
+}
+
+#menub~ul>li>a:hover {
+    background-color: lightpink;
+}
+
+.separator {
+    clear: both;
+    padding-top: 50px;
+}
+
+#menub~ul>li>ul {
+    display: none;
+}
+
+/* ======= règles exercice 3 ======= */
+
+#menub~ul>li>ul {
+    padding: 0px;
+    padding-bottom: 20px;
+    /* meilleur alignement des bordures */
+    width: 153px;
+    margin-left: -2px;
+}
+
+#menub~ul li:hover>ul {
+    display: block;
+}
+
+#menub~ul>li>ul {
+    position: absolute;
+}
+
+#menub~ul>li>ul>li {
+    list-style-type: none;
+    border: solid 2px blue;
+    /* meilleur alignement des bordures */
+    margin-bottom: -2px;
+}
+
+#menub~ul>li>ul>li>a {
+    background-color: lightgreen;
+    display: block;
+    width: 150px;
+    text-decoration: none;
+    text-align: center;
+}
+
+
+#menub~ul>li>ul>li>a:hover {
+    background-color: lightpink;
+}
+
+/* ======= règles exercice 4 ======= */
+
+section {
+    width: 75%;
+    margin: auto;
+    float: left;
+}
+
+#twitterfeed {
+    margin-left: 75%;
+    height: 500px;
+    border-left: 1px solid red;
+}
+
+/* ======= règles exercice 5 ======= */
+
+section>article {
+    float: left;
+    width: 31%;
+    margin: 0 1%;
+}
+
+#suite {
+    clear: both;
+}

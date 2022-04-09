@@ -1,0 +1,71 @@
+/* h1 are red with black background */
+h1 {
+  color: red;
+  background-color: black;
+  text-transform: lowercase;
+}
+
+h1::first-letter {
+  text-transform: uppercase;
+}
+
+/* h2 are underlined */
+h2 {
+  text-decoration: underline;
+}
+
+/* first letter of each paragraph becomes capitalized, red and bold */
+p::first-letter {
+  color: red;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+/* hovered link removes decoration and becomes red */
+a:hover {
+  text-decoration: none;
+  color: red;
+}
+
+/* put class acronym in green and small caps */
+.acronym {
+  color: green;
+  font-variant: small-caps
+}
+
+/* id mot_a_decorer is underlined and blue */
+#mot_a_decorer {
+  text-decoration: underline;
+  color: blue;
+}
+
+/* strong is not bold and italic */
+strong {
+  font-weight: normal;
+  font-style: italic;
+}
+
+ol>li:first-child {
+  color: magenta;
+}
+
+ol>li:first-child ul {
+  color: initial
+}
+
+ol>li:last-child>ul>li:last-child {
+  color: purple;
+}
+
+/* em are bold orange */
+p>em {
+  font-weight: bold;
+  font-style: normal;
+  color: orange;
+}
+
+/* id bloc_indirect is not italic and bold and black */
+#bloc_indirect em {
+  font-weight: bold;
+  font-style: normal;
+}

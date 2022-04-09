@@ -1,0 +1,8 @@
+{
+    "css.lint.duplicateProperties": "warning",
+    "css.lint.ieHack": "warning",
+    "css.lint.important": "warning",
+    "css.lint.universalSelector": "warning",
+    "css.lint.unknownVendorSpecificProperties": "warning",
+    "css.lint.zeroUnits": "warning"
+}
