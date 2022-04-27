@@ -4,7 +4,7 @@
         {
             "label": "Start Server",
             "type": "shell",
-            "command": "${config:php.validate.executablePath} -S localhost:8080 -t ${fileDirname}",
+            "command": "${config:php.validate.executablePath} -S localhost:8080 -t ${workspaceFolder}",
             "isBackground": true,
             "group": "build",
             "problemMatcher": []
@@ -14,7 +14,7 @@
             "type": "shell",
             "command": "open http://localhost:8080/${fileBasename}",
             "windows": {
-                "command": "explorer 'http://localhost:8080/${fileBasename}'"
+                "command": "explorer 'http://localhost:8080/${relativeFile}'"
             },
             "group": "build",
             "problemMatcher": []
