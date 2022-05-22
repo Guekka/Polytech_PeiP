@@ -1,0 +1,14 @@
+[
+	{
+		"chatroom_id": "1",
+		"content": "Hey (de Axel) !",
+		"user_id": "a",
+		"date": "new Date()"
+	},
+	{
+		"chatroom_id": "1",
+		"content": "Hey (de Edgar) !",
+		"user_id": "b",
+		"date": "new Date()"
+	}
+]
