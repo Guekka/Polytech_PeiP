@@ -1,0 +1,7 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{chatroom.name}}</h5>
+        <p class="card-text">Discussion between : <span *ngFor="let user of users">{{user.name}} </span></p>
+        <button type="button" class="btn btn-primary" (click)="onViewConversation()">See discussion</button>
+    </div>
+</div>

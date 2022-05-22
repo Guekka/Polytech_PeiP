@@ -1,0 +1,20 @@
+<h1>{{chatroom.name}} :</h1>
+
+<div class="card" *ngFor="let message of messages">
+    <div class="userName">
+        <h5>{{message[0].name}} : </h5>
+    </div>
+    <h4>{{message[1].content}}</h4>
+    <p>Envoyé le : {{message[1].date | date: 'dd MMMM yyyy à HH:mm'}}</p>
+</div>
+
+
+<div class="userMessage card-footer p-3">
+    <form (ngSubmit)=" onClickSend()">
+        <div class="input-group mb-0">
+            <input type="text" id="content" name="content" [(ngModel)]="content" class="form-control form-control-lg">
+            <button type="submit" class="btn btn-warning">Envoyer !</button>
+        </div>
+
+    </form>
+</div>
