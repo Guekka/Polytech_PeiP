@@ -10,9 +10,8 @@ if (!empty($missing)) {
 
 $chatrooms = read_chatrooms($post["user_id"]);
 $id = count($chatrooms) + 1;
-$chatrooms[] = [
+$chatrooms[$id] = [
     "name" => $post["chatroom_name"],
-    "id" => $id,
     "user_id" => [$post["user_id"]]
 ];
 write_chatrooms($post["user_id"], $chatrooms);

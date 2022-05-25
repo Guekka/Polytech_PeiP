@@ -1,26 +1,23 @@
-[
-	{
+{
+	"1": {
 		"name": "chatroom 1",
-		"id": "1",
 		"user_id": [
 			"a",
 			"b"
 		]
 	},
-	{
+	"2": {
 		"name": "chatroom 2",
-		"id": "2",
 		"user_id": [
 			"a",
 			"b"
 		]
 	},
-	{
+	"3": {
 		"name": "chatroom 3",
-		"id": "3",
 		"user_id": [
 			"a",
 			"b"
 		]
 	}
-]
+}
