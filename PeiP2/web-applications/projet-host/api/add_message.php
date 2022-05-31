@@ -13,6 +13,6 @@ $messages[] = [
     "chatroom_id" => $post["chatroom_id"],
     "content" => $post["message_content"],
     "user_id" => $post["user_id"],
-    "data" => $post["message_date"]
+    "date" => $post["message_date"]
 ];
 write_messages($post["user_id"], $post["chatroom_id"], $messages);
