@@ -18,10 +18,11 @@ function check_args($post, string ...$args)
     return $missing;
 }
 
-function exit_with_error($missing)
+function exit_with_error($missing, $json)
 {
     $error = [
-        "error" => "Missing arguments: " . implode("; ", $missing)
+        "error" => "Missing arguments: " . implode("; ", $missing),
+        "data" => $json
     ];
     echo json_encode($error);
     exit();
