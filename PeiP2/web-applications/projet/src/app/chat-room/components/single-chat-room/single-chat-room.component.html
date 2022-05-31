@@ -1,20 +1,19 @@
-<h1>{{chatroom.name}} :</h1>
-
-<div class="card" *ngFor="let message of messages">
-    <div class="userName">
-        <h5>{{message[0].name}} : </h5>
-    </div>
-    <h4>{{message[1].content}}</h4>
-    <p>Envoyé le : {{message[1].date | date: 'dd MMMM yyyy à HH:mm'}}</p>
-</div>
-
-
-<div class="userMessage card-footer p-3">
-    <form (ngSubmit)=" onClickSend()">
-        <div class="input-group mb-0">
-            <input type="text" id="content" name="content" [(ngModel)]="content" class="form-control form-control-lg">
-            <button type="submit" class="btn btn-warning">Envoyer !</button>
+<div class="container" *ngIf="viewmodel$ |async as viewmodel; else loading">
+    <h2 style="text-align: center;">{{ viewmodel.chatroom.name}}</h2>
+    <div class="row">
+        <div class="col-md-4 overflow-auto resize">
+            <app-chat-room-list></app-chat-room-list>
         </div>
-
-    </form>
+        <div class="col-md-8 resize">
+            <div class="overflow-auto container messageListResize">
+                <!-- <app-message *ngFor="let content of viewmodel.messages; trackBy: getMessageId" [userMsg]="content"></app-message> -->
+                <app-message *ngFor="let content of viewmodel.messages;" [userMsg]="content"></app-message>
+            </div>
+        </div>
+        <app-message-input [chatroom]="viewmodel.chatroom"></app-message-input>
+    </div>
 </div>
+<!--This part stand for add a loading animation if the viewmodel$ async as viewmodel don't work it's a basic angular animation-->
+<ng-template #loading>
+    <div>Loading...</div>
+</ng-template>

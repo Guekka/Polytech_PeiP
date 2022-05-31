@@ -8,7 +8,7 @@ import { AuthGuard } from '../core/guards/auth.guard';
 export const routes: Routes = [
     { path: '', component: ChatRoomListComponent, canActivate: [AuthGuard] },
     { path: 'create', component: NewChatRoomComponent, canActivate: [AuthGuard] },
-    { path: ':id', component: SingleChatRoomComponent, canActivate: [AuthGuard] }
+    { path: ':id', component: SingleChatRoomComponent, canActivate: [AuthGuard] },
 ]
 
 @NgModule({

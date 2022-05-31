@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { chatRoom } from 'src/app/core/models/chat-room.model';
-import { message } from 'src/app/core/models/message.model';
-import { user } from 'src/app/core/models/user.model';
-import { chatRoomService } from 'src/app/core/services/chat-room.service';
-import { messageService } from 'src/app/core/services/message.service';
-import { userService } from 'src/app/core/services/user.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { combineLatest, map, Observable, switchMap } from 'rxjs';
+import { ChatRoom } from 'src/app/core/models/ChatRoomModel';
+import { UserMessage } from 'src/app/core/models/UserMessageModel';
+import { chatRoomService } from 'src/app/core/services/chatRoomService';
+import { UserMessageService } from 'src/app/core/services/userMessageService';
+
+interface ViewModel {
+  chatroom: ChatRoom;
+  messages: UserMessage[];
+}
 
 @Component({
   selector: 'app-single-chat-room',
@@ -14,30 +18,45 @@ import { userService } from 'src/app/core/services/user.service';
 })
 export class SingleChatRoomComponent implements OnInit {
 
-  messages !: [user, message][];
-  chatroom !: chatRoom;
+  messages$ !: Observable<UserMessage[]>;
+  chatroom$ !: Observable<ChatRoom>;
   content: string = '';
+  viewmodel$: Observable<ViewModel>;
 
   constructor(private route: ActivatedRoute,
-    private messageService: messageService,
-    private userService: userService,
-    private chatroomService: chatRoomService) { }
+    private userMessageService: UserMessageService,
+    private chatroomService: chatRoomService) {
+    this.viewmodel$ = this.route.paramMap.pipe(
+      map((params: ParamMap): string => {
+        const maybeId: string | null = params.get('id');
+        if (maybeId !== null) {
+          return maybeId;
+        }
+        throw new Error("Id isn't appropriate please retry");
+      }),
+      // Switch from the this.route.paramMap Observable to a new Observable, map (transform) the emissions
+      switchMap(
+        // switch from this.route.paramMap to Observable<ViewModel>.
+        // map chatroomId to ViewModel
+        (chatroomId: string): Observable<ViewModel> =>
+          // Take a mapping of Observables and combine them into a single Observable
+          // Take the latest values from each Observable combined.
+          combineLatest({
+            chatroom: this.chatroomService.getChatroomById(chatroomId),
+            messages: this.userMessageService.getUserMessagesByRoomId(chatroomId),
+          }),
+      ),
+    );
+  }
 
   ngOnInit(): void {
-    const chatroomId = this.route.snapshot.params['id'];
-    this.chatroom = this.chatroomService.getChatroomById(chatroomId);
-    this.loadMessage(chatroomId);
   }
 
-  loadMessage(chatroomId: string) {
-    this.messages = this.messageService.getMessageByChatRoomID(chatroomId)
-      .map((msg: message) => [this.userService.getUserById(msg.user_id), msg]);
-  }
 
-  onClickSend() {
-    if (this.content !== '') {
-      this.messageService.addMessage(this.chatroom.id, this.content, 'test');
-      this.content = '';
-    }
-  }
+  // onClickSend() { //currently not working comment it for test
+  //   if (this.content !== '') {
+  //     this.messageService.addMessage(this.chatroom$.get('id'), this.content, 'test'); //'test' will be replaced by id of logged user later...
+  //     this.content = '';
+  //   }
+  // }
 }

@@ -1,1 +1,19 @@
-<p>register works!</p>
+<div class="form-card">
+    <h2>Inscription</h2>
+    <div class="form-group">
+        <label for="name">Nom d'utilisateur</label>
+        <input type="name" id="name">
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email">
+    </div>
+    <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password">
+    </div>
+    <div class="action-buttons">
+        <button type="submit" (click)="onRegister()">Inscription</button>
+    </div>
+    <a routerLink="/auth/login">Connexion</a>
+</div>

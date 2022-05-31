@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-11">
+            <textarea type="text" name="content" id='content' placeholder="Your message..." rows="4" cols="11"
+                [(ngModel)]="content"></textarea>
+        </div>
+        <div class="col-md-1">
+            <button class="btn btn-primary btn-lg btn-rounded btn-rounded btn-floating"><i class="fas fa-paper-plane"
+                    (click)="onClickSend()"></i></button>
+        </div>
+    </div>
+</div>

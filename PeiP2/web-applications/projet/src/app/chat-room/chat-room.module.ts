@@ -6,6 +6,8 @@ import { SingleChatRoomComponent } from './components/single-chat-room/single-ch
 import { NewChatRoomComponent } from './components/new-chat-room/new-chat-room.component';
 import { ChatRoomRoutingModule } from './chat-room-routing.module';
 import { FormsModule } from '@angular/forms';
+import { MessageComponent } from './components/message/message.component';
+import { MessageInputComponent } from './components/message-input/message-input.component';
 
 
 
@@ -14,7 +16,9 @@ import { FormsModule } from '@angular/forms';
     ChatRoomComponent,
     ChatRoomListComponent,
     SingleChatRoomComponent,
-    NewChatRoomComponent
+    NewChatRoomComponent,
+    MessageComponent,
+    MessageInputComponent
   ],
   imports: [
     CommonModule,

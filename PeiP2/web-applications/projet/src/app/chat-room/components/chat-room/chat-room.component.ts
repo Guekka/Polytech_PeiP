@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { chatRoom } from 'src/app/core/models/chat-room.model';
-import { user } from 'src/app/core/models/user.model';
-import { userService } from 'src/app/core/services/user.service';
+import { ChatRoom } from 'src/app/core/models/ChatRoomModel';
+import { User } from 'src/app/core/models/UserModel';
+import { userService } from 'src/app/core/services/userService';
 
 @Component({
   selector: 'app-chat-room',
@@ -10,9 +10,8 @@ import { userService } from 'src/app/core/services/user.service';
   styleUrls: ['./chat-room.component.scss']
 })
 export class ChatRoomComponent implements OnInit {
-  @Input() chatroom !: chatRoom;
-
-  users: user[] = [];
+  @Input() chatroom !: ChatRoom;
+  users: User[] = [];
   constructor(private router: Router,
     private userService: userService) { }
 
@@ -25,6 +24,7 @@ export class ChatRoomComponent implements OnInit {
   }
 
   onViewConversation(): void {
+    console.log(this.chatroom.id);
     this.router.navigateByUrl(`/chatroom/${this.chatroom.id}`);
   }
 }

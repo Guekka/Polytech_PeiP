@@ -1,0 +1,31 @@
+<div class="mymessage" *ngIf="userMsg.user.id === '1'" class="row">
+    <img src="https://s2.qwant.com/thumbr/415x415/5/1/0192723c2a09b17eb9b06b78550bafb9a2b76b62d56f20c178a88a2e30b535/th.jpg?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.nvmSisyWAfMlSRx8g_L3zAAAAA%26pid%3DApi&q=0&b=1&p=0&a=0"
+        alt="pp of user" class="col-md-4">
+    <div class="col-md-8 card mask-custom">
+        <div class="d-flex justify-content-between p-3" style="border-bottom: 1px solid rgba(255,255,255,.3);">
+            <p class="fw-bold mb-0">{{userMsg.user.name}}</p>
+            <p class="text-light small mb-0">{{userMsg.message.date | date: 'dd MMMM yyyy à HH:mm'}}</p>
+        </div>
+        <div class="card-body">
+            <p class="mb-0">
+                {{userMsg.message.content}}
+            </p>
+        </div>
+    </div>
+</div>
+<div class="othermessage" *ngIf="userMsg.user.id !== '1'" class="row">
+    <div class="col-md-8 card mask-custom">
+        <div class="d-flex justify-content-between p-3" style="border-bottom: 1px solid rgba(255,255,255,.3);">
+            <p class="fw-bold mb-0">{{userMsg.user.name}}</p>
+            <p class="text-light small mb-0"><i class="far fa-clock"></i> {{userMsg.message.date | date: 'dd MMMM yyyy à
+                HH:mm'}}</p>
+        </div>
+        <div class="card-body">
+            <p class="mb-0">
+                {{userMsg.message.content}}
+            </p>
+        </div>
+    </div>
+    <img src="https://s2.qwant.com/thumbr/415x415/5/1/0192723c2a09b17eb9b06b78550bafb9a2b76b62d56f20c178a88a2e30b535/th.jpg?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.nvmSisyWAfMlSRx8g_L3zAAAAA%26pid%3DApi&q=0&b=1&p=0&a=0"
+        alt="pp of other" class="col-md-4">
+</div>
